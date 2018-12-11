@@ -24,6 +24,6 @@ func main() {
 		filename := path.Base(file)
 		ext := path.Ext(filename)
 		trunk := strings.TrimSuffix(filename, ext)
-		doc.SaveToFile(trunk + "-unlocked" + ext)
+		doc.SaveToFile(trunk + "-protected" + ext)
 	}
 }
