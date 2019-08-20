@@ -17,13 +17,13 @@ func main() {
 	for _, file := range os.Args[1:] {
 		doc, err := document.Open(file)
 		if err != nil {
-			fmt.Fprintln(os.Stderr, err)
+			fmt.Fprintf(os.Stderr, "error: %v\n", err)
 			continue
 		}
 		doc.Settings.X().DocumentProtection = nil
 		filename := path.Base(file)
 		ext := path.Ext(filename)
 		trunk := strings.TrimSuffix(filename, ext)
-		doc.SaveToFile(trunk + "-protected" + ext)
+		doc.SaveToFile(trunk + "-unprotected" + ext)
 	}
 }
