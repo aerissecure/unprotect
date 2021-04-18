@@ -12,9 +12,11 @@ import (
 )
 
 func main() {
-	if err := license.SetLegacyLicenseKey(unidocLicense); err != nil {
-		fmt.Println("error installing unioffice license:", err)
-		os.Exit(1)
+	if unidocLicense != "" {
+		if err := license.SetLegacyLicenseKey(unidocLicense); err != nil {
+			fmt.Println("error installing unioffice license:", err)
+			os.Exit(1)
+		}
 	}
 
 	unioffice.DisableLogging()
